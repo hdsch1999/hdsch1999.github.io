@@ -1,0 +1,22 @@
+                                            操作系统之linux的文件系统
+ 
+FAT
+
+使用一张表来保存盘块的信息。
+
+NTFS
+
+他是WindowsNT环境的系统文件。他对FAT进行了改进，取代了旧的文件系统。
+
+EXT（extended file system）：扩展文件系统
+
+他是linux的文件系统，window不能识别他。
+
+EXT文件系统分为两个区域，第一个是启动扇区，用于安装开机管理程序。第二个部分是链组，用于存储数据。
+链组里面有一个区域叫Inode，每一个文件都有Inode，这是每一个文件的索引节点。
+Inode包含文件类型，文件权限，文件物理地址，文件长度，文件连接计数，等文件信息。
+文件的文件名存放在目录Inode中，好处是列出目录文件的时候无须加载文件的Inode。
+Inode bitmap是位示图，记录已分配的Inode和未分配的Inode。
+date block 是存放文件内容的地方，每个block都有一个唯一标号。
+block bitmap 与Inode bitmap一样。
+superblock是记录整个文件系统相关记录的地方，包括block和Inode的使用情况时间信息，控制信息等。一般都是1024字节大小。
